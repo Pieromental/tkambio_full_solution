@@ -1,0 +1,9 @@
+[submodule "tkambio_back"]
+	path = tkambio_back
+	url = https://github.com/Pieromental/tkambio_back.git
+[submodule "tkambio_challenge_front"]
+	path = tkambio_challenge_front
+	url = https://github.com/Pieromental/tkambio_challenge_front.git
+[submodule "tkambio_challenge_static_front"]
+	path = tkambio_challenge_static_front
+	url = https://github.com/Pieromental/tkambio_challenge_static_front.git
