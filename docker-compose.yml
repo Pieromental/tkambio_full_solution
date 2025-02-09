@@ -28,3 +28,11 @@ services:
       - '8080:80'
     environment:
       - VITE_CLIENT_API_URL=http://localhost:8000
+  frontend-static-prod:
+    build:
+      context: ./tkambio_challenge_static_front
+      dockerfile: Dockerfile
+    container_name: vue_frontend_static_prod
+    restart: unless-stopped
+    ports:
+      - '9090:80'
