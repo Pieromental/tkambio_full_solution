@@ -1,0 +1,30 @@
+version: '3.8'
+
+services:
+  backend:
+    build:
+      context: ./tkambio_back
+      dockerfile: Dockerfile
+    container_name: laravel_app
+    restart: unless-stopped
+    working_dir: /var/www/html
+    ports:
+      - '8000:80'
+    environment:
+      - APP_ENV=production
+      - APP_DEBUG=false
+
+    command: >
+      sh -c "php artisan migrate:fresh --seed --force &&
+           php artisan queue:work --daemon &
+           apache2-foreground"
+  frontend-prod:
+    build:
+      context: ./tkambio_challenge_front
+      dockerfile: Dockerfile
+    container_name: vue_frontend_prod
+    restart: unless-stopped
+    ports:
+      - '8080:80'
+    environment:
+      - VITE_CLIENT_API_URL=http://localhost:8000
