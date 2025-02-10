@@ -36,3 +36,17 @@ services:
     restart: unless-stopped
     ports:
       - '9090:80'
+  soketi:
+    image: quay.io/soketi/soketi:1.4-16-debian
+    container_name: soketi
+    restart: unless-stopped
+
+    environment:
+      SOKETI_DEBUG: -1
+      SOKETI_METRICS_SERVER_PORT: 9601
+      SOKETI_DEFAULT_APP_ID: 'local-app-id'
+      SOKETI_DEFAULT_APP_KEY: 'local-app-key'
+      SOKETI_DEFAULT_APP_SECRET: 'local-app-secret'
+    ports:
+      - "6001:6001"
+      - "9601:9601"
