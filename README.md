@@ -67,10 +67,6 @@ docker-compose up -d --build
 docker-compose logs -f
 ```
 
-## 📝 Licencia
-
-Este proyecto está bajo la licencia [MIT](LICENSE).
-
 ---
 _Hecho con ❤️ por [Pieromental](https://github.com/Pieromental)._
 
